@@ -1,18 +1,20 @@
 # Claude Code Infrastructure Template
 
-This repository provides a comprehensive Claude Code assisted codebase infrastructure template. When users clone this repo and use Claude Code with prompts like "setup a claude code assisted codebase for me, using X as frontend and Y as backend", Claude can reference the `showcase` submodule to set up a proper AI-assisted codebase infrastructure.
+**For Template Maintainers** - This document describes the structure and purpose of the Claude Code Infrastructure Template.
 
-## ⚠️ Important: Template Workflow
+**If you're setting up a Claude Code assisted codebase**, see the customized `CLAUDE.md` in your `output/[project-name]/` directory instead.
 
-**This is a TEMPLATE repository.** When assisting users:
+## ⚠️ Template Maintainer Workflow
 
-1. Read **[TEMPLATE_USAGE.md](./TEMPLATE_USAGE.md)** BEFORE making any changes
-2. **DO NOT** modify template files with specific tech implementations
-3. **Gather comprehensive tech specs** from users first
-4. **Create customized versions** in `output/` directory
-5. Users copy from `output/` to their project
+This is the **TEMPLATE REPOSITORY** — do not add tech-specific implementations here.
 
-**See [TEMPLATE_USAGE.md](./TEMPLATE_USAGE.md) for the complete workflow.**
+**When users request setup assistance:**
+1. Read **[TEMPLATE_USAGE.md](./TEMPLATE_USAGE.md)** for the complete workflow
+2. Gather tech specifications from the user
+3. Create customized setups in `output/[project-name]/`
+4. Each output directory contains its own `CLAUDE.md` for end users
+
+**Never modify template files with specific tech implementations.**
 
 ## Repository Structure
 
@@ -73,80 +75,37 @@ See [showcase/.claude/hooks/README.md](showcase/.claude/hooks/README.md) for det
 ### Dev Directory
 The `dev/` directory is for tech-specific project tracking and documentation. See [dev/README.md](dev/README.md) for usage patterns.
 
-## How to Use This Template
+## For Template Maintainers: How to Create Output Directories
 
-### ⚠️ CRITICAL: Template Workflow
+### Workflow Overview
 
-**This repository is a TEMPLATE.** When users ask you to "setup a Claude Code assisted codebase," follow this workflow:
+When a user requests a Claude Code assisted codebase setup:
 
-1. **DO NOT modify template files with specific tech implementations**
-2. **Gather comprehensive tech specifications** from user (see below)
-3. **Create customized version in `output/` directory**
-4. **User copies from `output/` to their project**
+1. **Gather requirements** (see TEMPLATE_USAGE.md for detailed questionnaire)
+2. **Create self-contained directory** at `output/[project-name]/`
+3. **Include all components:** .claude/, dev/, CLAUDE.md (main docs), SETUP.md
+4. **User copies entire directory** to their project
 
-### Template Workflow Steps
+### Output Directory Structure
 
-#### Step 1: Gather Tech Stack Specifications
+Each `output/[project-name]/` directory must be **self-contained**:
 
-When user says: "setup a claude code assisted codebase for me, using React frontend and Node backend"
-
-**You MUST ask comprehensive questions:**
-
-**Frontend Questions:**
-- What framework and version? (React 18+, Vue, Angular, etc.)
-- UI library? (MUI v5/v7, Ant Design, Tailwind, etc.)
-- State management? (Redux, Zustand, TanStack Query, etc.)
-- Router? (TanStack Router, React Router, etc.)
-- TypeScript or JavaScript?
-
-**Backend Questions:**
-- What framework and version? (Express, Fastify, NestJS, etc.)
-- Database? (Prisma, Sequelize, Mongoose, etc.)
-- Authentication? (JWT, session-based, etc.)
-- Language? (TypeScript, JavaScript)
-
-**Project Structure:**
-- Monorepo, polyrepo, or separate repos?
-- Where is the code located?
-- Any existing conventions or patterns?
-
-Keep asking until you have a complete picture.
-
-#### Step 2: Create Output Directory
-
-Create all customized files in:
 ```
-output/
-├── .claude/
-│   ├── agents/          # (copied from template)
-│   ├── hooks/           # (copied from template)
-│   ├── skills/          # (selectively copied based on tech stack)
-│   └── settings.json    # (customized for their tech stack)
-├── dev/
-│   └── [tech]-guide.md  # (customized with their patterns)
-└── SETUP.md             # (project-specific setup instructions)
+output/[project-name]/
+├── CLAUDE.md            # Main user documentation (project-specific)
+├── SETUP.md             # Quick verification steps
+├── .claude/             # Claude Code configuration
+│   ├── agents/          # All agents (tech-agnostic)
+│   ├── hooks/           # Essential hooks
+│   ├── skills/          # Tech-specific skills
+│   └── settings.json    # Customized settings
+└── dev/                 # Project documentation
+    └── [tech]-guide.md  # Tech-specific patterns
 ```
 
-#### Step 3: Customize Components
+**Key Principle:** When users copy this directory to their project, it should work immediately after running `chmod +x .claude/hooks/*.sh`.
 
-Only copy skills that match their tech stack:
-
-| User's Tech Stack | Copy This | Skip This |
-|-------------------|-----------|-----------|
-| React + MUI v7    | `frontend-dev-guidelines` | `backend-dev-guidelines` |
-| Express + Prisma  | `backend-dev-guidelines` | `frontend-dev-guidelines` |
-| Other frameworks  | Copy as template only | Adapt patterns |
-
-**Always copy:**
-- All agents (tech-agnostic)
-- Essential hooks (skill-activation, post-tool-use)
-- skill-developer (meta-skill)
-
-#### Step 4: Provide Setup Instructions
-
-User copies `output/` to their project and follows customized `SETUP.md`.
-
-### Why This Workflow?
+### Why This Structure?
 
 **Before (Problem):**
 ```
@@ -159,14 +118,12 @@ Result: Template is now Android-specific, can't be reused
 ```
 User: "Setup for React + Node"
 Claude: *creates output/react-node-setup/*
-Result: Template remains generic, user gets customized version
+Result:
+- Template remains generic ✅
+- User gets: output/react-node-setup/CLAUDE.md (custom docs)
+- User copies: cp -r output/react-node-setup/* ~/project/
+- Project is ready to use ✅
 ```
-
-This ensures:
-✅ Template stays reusable
-✅ User gets project-specific customization
-✅ No conflicts with existing project files
-✅ Clear separation between template and implementation
 
 ### For Claude Code (When Assisting Users)
 

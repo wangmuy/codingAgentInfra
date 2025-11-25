@@ -120,10 +120,11 @@ When a user says: **"Setup a Claude Code assisted codebase for me, using React a
 
 ### Step 2: Create Output Directory Structure
 
-Once you have the complete tech stack, create:
+Once you have the complete tech stack, create a **self-contained directory** that users can copy directly to their project:
 
 ```
-output/
+output/[project-name]/
+├── CLAUDE.md            # PROJECT-SPECIFIC documentation (main user guide)
 ├── .claude/
 │   ├── agents/          # Copied from template (all are tech-agnostic)
 │   ├── hooks/           # Copied from template (essential hooks)
@@ -131,8 +132,10 @@ output/
 │   └── settings.json    # CUSTOMIZED for their specific setup
 ├── dev/
 │   └── [tech]-guide.md   # CUSTOMIZED with their patterns and examples
-└── SETUP.md             # Project-specific setup and usage instructions
+└── SETUP.md             # Quick setup verification steps
 ```
+
+**Important:** The `CLAUDE.md` in the output directory is the MAIN documentation for the user. It replaces the need for a README with copy instructions.
 
 ### Step 3: Selectively Copy Components
 
@@ -192,12 +195,13 @@ Create `dev/[tech]-guide.md` with:
 
 ### Step 6: Create Setup Instructions
 
-Create `SETUP.md` with:
-- How to copy files to their project
-- Configuration steps
+Create `SETUP.md` with quick verification steps:
+- Configuration validation steps
 - Verification commands
 - Next steps
 - Usage examples specific to their tech stack
+
+**DO NOT include "how to copy" instructions** - the output directory is self-contained and users simply copy the entire directory to their project root.
 
 ---
 
@@ -278,19 +282,20 @@ echo '...' > output/react-express-setup/SETUP.md
 ```
 ✅ Customized setup complete in output/react-express-setup/!
 
-**To add to your project:**
+**This is a self-contained Claude Code setup. To use it:**
 
-1. Copy the files:
-   cp -r output/react-express-setup/.claude ~/your-project/
-   cp -r output/react-express-setup/dev ~/your-project/
+1. **Copy to your project:**
+   cp -r output/react-express-setup/* ~/your-project/
 
-2. Review SETUP.md for configuration details
+2. **Review CLAUDE.md** - This is your main documentation with usage patterns
 
-3. Update .claude/settings.json with your specific project paths
+3. **Run setup verification:**
+   cd ~/your-project && cat SETUP.md
 
-4. Run: chmod +x .claude/hooks/*.sh
+4. **Make hooks executable:**
+   chmod +x .claude/hooks/*.sh  # Important!
 
-See SETUP.md for detailed instructions and next steps!
+That's it! Your Claude Code assisted codebase is ready. See CLAUDE.md for detailed usage instructions.
 ```
 
 ---
