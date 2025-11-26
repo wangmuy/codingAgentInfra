@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the **standard workflow** for using the Claude Code Infrastructure Template to set up assisted codebases.
+This document describes the **standard workflow** for using the Coding Agent Infrastructure Template to set up assisted codebases for any AI coding agent (Claude Code, Gemini CLI, Cline, RooCode, etc.).
 
 ---
 
@@ -21,7 +21,7 @@ Instead:
 
 ### Step 1: Gather Tech Stack Specifications
 
-When a user says: **"Setup a Claude Code assisted codebase for me, using React as frontend and Node.js as backend"**
+When a user says: **"Setup a coding agent assisted codebase for me, using React as frontend and Node.js as backend"**
 
 #### ⚠️ CRITICAL: You must ask detailed questions before proceeding
 
@@ -210,7 +210,7 @@ Create `SETUP.md` with quick verification steps:
 ### User Request
 
 ```
-User: "Setup a Claude Code assisted codebase for me, using React frontend and Node backend"
+User: "Setup a coding agent assisted codebase for me, using React frontend and Node backend"
 ```
 
 ### Your Response
@@ -218,7 +218,7 @@ User: "Setup a Claude Code assisted codebase for me, using React frontend and No
 #### Phase 1: Gather Specifications
 
 ```
-Great! I'll set up a Claude Code assisted codebase for you. To customize it
+Great! I'll set up a coding agent assisted codebase for you. To customize it
 properly, I need some details about your tech stack:
 
 **Frontend Questions:**
@@ -282,7 +282,7 @@ echo '...' > output/react-express-setup/SETUP.md
 ```
 ✅ Customized setup complete in output/react-express-setup/!
 
-**This is a self-contained Claude Code setup. To use it:**
+**This is a self-contained coding agent setup. To use it:**
 
 1. **Copy to your project:**
    cp -r output/react-express-setup/* ~/your-project/
@@ -295,7 +295,7 @@ echo '...' > output/react-express-setup/SETUP.md
 4. **Make hooks executable:**
    chmod +x .claude/hooks/*.sh  # Important!
 
-That's it! Your Claude Code assisted codebase is ready. See CLAUDE.md for detailed usage instructions.
+That's it! Your coding agent assisted codebase is ready. See CLAUDE.md for detailed usage instructions.
 ```
 
 ---
@@ -430,7 +430,7 @@ With workflow:
 
 ---
 
-## For Claude Code Developers
+## For Template Developers
 
 When improving this template:
 
@@ -448,6 +448,10 @@ When improving this template:
 4. **Maintain the `output/` directory pattern**
    - Any automation should respect this workflow
    - Create subdirectories per tech stack
+
+5. **Keep compatibility with multiple coding agents**
+   - This template should work with Claude Code, Gemini CLI, Cline, RooCode, and other AI coding agents
+   - Avoid vendor-specific features in core components
 
 ---
 

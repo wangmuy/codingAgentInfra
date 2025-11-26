@@ -1,8 +1,8 @@
-# Claude Code Infrastructure Template
+# Coding Agent Infrastructure Template
 
-**For Template Maintainers** - This document describes the structure and purpose of the Claude Code Infrastructure Template.
+**For Template Maintainers** - This document describes the structure and purpose of the Coding Agent Infrastructure Template, compatible with any AI coding agent (Claude Code, Gemini CLI, Cline, RooCode, etc.).
 
-**If you're setting up a Claude Code assisted codebase**, see the customized `CLAUDE.md` in your `output/[project-name]/` directory instead.
+**If you're setting up a coding agent assisted codebase**, see the customized `CLAUDE.md` in your `output/[project-name]/` directory instead.
 
 ## ⚠️ Template Maintainer Workflow
 
@@ -79,7 +79,7 @@ The `dev/` directory is for tech-specific project tracking and documentation. Se
 
 ### Workflow Overview
 
-When a user requests a Claude Code assisted codebase setup:
+When a user requests a coding agent assisted codebase setup:
 
 1. **Gather requirements** (see TEMPLATE_USAGE.md for detailed questionnaire)
 2. **Create self-contained directory** at `output/[project-name]/`
@@ -94,7 +94,7 @@ Each `output/[project-name]/` directory must be **self-contained**:
 output/[project-name]/
 ├── CLAUDE.md            # Main user documentation (project-specific)
 ├── SETUP.md             # Quick verification steps
-├── .claude/             # Claude Code configuration
+├── .claude/             # Coding agent configuration
 │   ├── agents/          # All agents (tech-agnostic)
 │   ├── hooks/           # Essential hooks
 │   ├── skills/          # Tech-specific skills
@@ -125,9 +125,9 @@ Result:
 - Project is ready to use ✅
 ```
 
-### For Claude Code (When Assisting Users)
+### For AI Coding Agents (When Assisting Users)
 
-When a user asks you to set up a Claude Code assisted codebase:
+When a user asks you to set up a coding agent assisted codebase:
 
 1. **Reference the Integration Guide**: The [showcase/CLAUDE_INTEGRATION_GUIDE.md](showcase/CLAUDE_INTEGRATION_GUIDE.md) contains step-by-step instructions for integrating components into user projects.
 
@@ -142,7 +142,7 @@ When a user asks you to set up a Claude Code assisted codebase:
 
 ### Example User Prompts
 
-**User**: "Setup a claude code assisted codebase for me, using React as frontend and Node.js as backend."
+**User**: "Setup a coding agent assisted codebase for me, using React as frontend and Node.js as backend."
 
 **Your approach**:
 1. Copy `skill-activation-prompt` and `post-tool-use-tracker` hooks

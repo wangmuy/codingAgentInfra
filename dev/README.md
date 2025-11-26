@@ -332,7 +332,7 @@ If scope changes:
 
 ---
 
-## For Claude Code
+## For AI Coding Agents
 
 **When user asks to create dev docs:**
 
