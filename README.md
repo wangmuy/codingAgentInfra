@@ -1,4 +1,5 @@
 # Coding Agent Infrastructure Template
+[中文](./README_zh.md)
 
 A template for adapting [claude-code-infrastructure-showcase](https://github.com/diet103/claude-code-infrastructure-showcase) to any tech stack with AI coding agents.
 
