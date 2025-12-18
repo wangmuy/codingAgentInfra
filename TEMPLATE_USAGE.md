@@ -124,15 +124,15 @@ Once you have the complete tech stack, create a **self-contained directory** tha
 
 ```
 output/[project-name]/
-├── CLAUDE.md            # PROJECT-SPECIFIC documentation (main user guide)
+├── CLAUDE.md              # PROJECT-SPECIFIC documentation (main user guide)
 ├── .claude/
-│   ├── agents/          # Copied from template (all are tech-agnostic)
-│   ├── hooks/           # Copied from template (essential hooks)
-│   ├── skills/          # SELECTIVELY copied based on tech stack
-│   └── settings.json    # CUSTOMIZED for their specific setup
+│   ├── agents/            # Copied from template (all are tech-agnostic)
+│   ├── hooks/             # Copied from template (essential hooks)
+│   ├── skills/            # SELECTIVELY copied based on tech stack
+│   └── settings.json      # CUSTOMIZED for their specific setup
 ├── dev/
-│   └── [tech]-guide.md   # CUSTOMIZED with their patterns and examples
-└── SETUP.md             # Quick setup verification steps
+│   └── [tech]-guide.md    # CUSTOMIZED with their patterns and examples
+└── AGENT_SETUP_VERIFY.md  # Quick setup verification steps
 ```
 
 **Important:** The `CLAUDE.md` in the output directory is the MAIN documentation for the user. It replaces the need for a README with copy instructions.
@@ -195,7 +195,7 @@ Create `dev/[tech]-guide.md` with:
 
 ### Step 6: Create Setup Instructions
 
-Create `SETUP.md` with quick verification steps:
+Create `AGENT_SETUP_VERIFY.md` with quick verification steps:
 - Configuration validation steps
 - Verification commands
 - Next steps
@@ -274,7 +274,7 @@ echo '{...}' > output/react-express-setup/.claude/settings.json
 
 # Create tech-specific documentation
 echo '...' > output/react-express-setup/dev/REACT_EXPRESS_GUIDE.md
-echo '...' > output/react-express-setup/SETUP.md
+echo '...' > output/react-express-setup/AGENT_SETUP_VERIFY.md
 ```
 
 #### Phase 3: Provide Instructions
@@ -290,7 +290,7 @@ echo '...' > output/react-express-setup/SETUP.md
 2. **Review CLAUDE.md** - This is your main documentation with usage patterns
 
 3. **Run setup verification:**
-   cd ~/your-project && cat SETUP.md
+   cd ~/your-project && cat AGENT_SETUP_VERIFY.md
 
 4. **Make hooks executable:**
    chmod +x .claude/hooks/*.sh  # Important!
@@ -373,7 +373,7 @@ Before providing the customized setup, verify:
 - [ ] Selectively copied skills based on tech compatibility
 - [ ] Created customized `.claude/settings.json`
 - [ ] Created `dev/[tech]-guide.md` with tech-specific patterns
-- [ ] Created `SETUP.md` with clear instructions
+- [ ] Created `AGENT_SETUP_VERIFY.md` with clear instructions
 - [ ] Verified no template files were modified
 - [ ] Provided clear copy instructions to user
 
@@ -388,7 +388,7 @@ Before providing the customized setup, verify:
 **Solution:** Check the skill's requirements in `showcase/.claude/skills/[skill-name]/SKILL.md`. When in doubt, copy as template rather than full implementation.
 
 ### Problem: Hooks require project-specific paths
-**Solution:** Note this in SETUP.md and provide instructions for customization. Use placeholder paths that users can replace.
+**Solution:** Note this in AGENT_SETUP_VERIFY.md and provide instructions for customization. Use placeholder paths that users can replace.
 
 ### Problem: Template files were accidentally modified
 **Solution:** Revert the changes immediately. Use `git status` to check for unintended modifications.

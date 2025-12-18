@@ -83,7 +83,7 @@ When a user requests a coding agent assisted codebase setup:
 
 1. **Gather requirements** (see TEMPLATE_USAGE.md for detailed questionnaire)
 2. **Create self-contained directory** at `output/[project-name]/`
-3. **Include all components:** .claude/, dev/, CLAUDE.md (main docs), SETUP.md
+3. **Include all components:** .claude/, dev/, CLAUDE.md (main docs), AGENT_SETUP_VERIFY.md
 4. **User copies entire directory** to their project
 
 ### Output Directory Structure
@@ -92,15 +92,15 @@ Each `output/[project-name]/` directory must be **self-contained**:
 
 ```
 output/[project-name]/
-├── CLAUDE.md            # Main user documentation (project-specific)
-├── SETUP.md             # Quick verification steps
-├── .claude/             # Coding agent configuration
-│   ├── agents/          # All agents (tech-agnostic)
-│   ├── hooks/           # Essential hooks
-│   ├── skills/          # Tech-specific skills
-│   └── settings.json    # Customized settings
-└── dev/                 # Project documentation
-    └── [tech]-guide.md  # Tech-specific patterns
+├── CLAUDE.md              # Main user documentation (project-specific)
+├── AGENT_SETUP_VERIFY.md  # Quick verification steps
+├── .claude/               # Coding agent configuration
+│   ├── agents/            # All agents (tech-agnostic)
+│   ├── hooks/             # Essential hooks
+│   ├── skills/            # Tech-specific skills
+│   └── settings.json      # Customized settings
+└── dev/                   # Project documentation
+    └── [tech]-guide.md    # Tech-specific patterns
 ```
 
 **Key Principle:** When users copy this directory to their project, it should work immediately after running `chmod +x .claude/hooks/*.sh`.
